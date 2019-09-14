@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 
 namespace RestAPI
@@ -15,10 +16,12 @@ namespace RestAPI
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+               name: "DefaultApi1",
+               routeTemplate: "{controller}/{id}",
+               defaults: new { id = RouteParameter.Optional }
+           );
+            config.Formatters.Clear();
+            config.Formatters.Insert(0, new JsonMediaTypeFormatter());
         }
     }
 }
