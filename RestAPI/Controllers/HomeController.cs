@@ -12,6 +12,9 @@ namespace RestAPI.Controllers
         {
             ViewBag.Title = "Home Page";
 
+            var  aa = "ss";
+               
+
             return View();
         }
     }
